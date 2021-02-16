@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #3D5A80;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  margin: 1em 6%;
+}
+
+.form-section {
+  background-color: #98C1D9;
+  width: 50%;
+  height: 100%;
+  padding: 1em 1.5em;
+  text-align: left;
+  color: #3D5A80;
+  border-radius: .4em;
+}
+
+.form-section .form-title {
+  margin-bottom: .6em;
+  font-size: 1.2em;
+}
+
+.form-section label, .form-section input, .form-section textarea {
+  display: block;
+}
+
+.form-section input, .form-section textarea {
+  margin-bottom: 1em;
+  width: 100%;
+  border: none;
+  padding: .2em;
+  border-radius: .2em;
+}
+
+.form-section input {
+  border-bottom: 2px solid #3D5A80;
+}
+
+.form-section label {
+  font-weight: bold;
+  font-size: .9em;
+}
+
+.form-section .btn {
+  margin: auto;
+  display: block;
+  padding: .5em;
+  width: 50%;
+  -webkit-appearance: none;
+  border: none;
+}
+
+.form-section .btn:focus {
+  outline: none;
+}
+
+.results {
+  background-color: aqua;
+  width: 50%;
+  height: 100%;
+}
+/*# sourceMappingURL=main.css.map */

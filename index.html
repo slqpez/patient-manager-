@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/sass/main.css">
     <title>Administrador de pacientes</title>
 </head>
 <body>
-    
+    <h1>Administrador de citas de pacientes</h1>
+    <div class="container">
+        <div class="form-section">
+            <h3 class="form-title">Datos del paciente</h3>
+            <form action="#" id="form">
+                <label for="name">Nombre de la mascota:</label>
+                <input type="text" id="name">
+                <label for="owner">Propietario:</label>
+                <input type="text" id="owner">
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone">
+                <label for="date">Fecha:</label>
+                <input type="date" name="date" id="date">
+                <label for="hour">Hora:</label>
+                <input type="time" name="" id="hour">
+                <label for="notes">Comentarios:</label>
+                <textarea name="notes" id="notes" cols="20" rows="5"></textarea>
+                <button class="btn">Agendar</button>
+            </form>
+        </div>
+        <div class="results"></div>
+
+    </div>
 </body>
 </html>
