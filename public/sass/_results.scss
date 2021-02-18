@@ -1,5 +1,47 @@
 .results{
-    background-color: aqua;
+    background-color: #fff;
     width: 50%;
-    height: 100%;
+    height: auto;
+    max-height: 530px;
+    border-radius: .4em;
+    padding: 1em 1.5em;
+    margin-left: .4em;
+    color: #3D5A80;
+    overflow: scroll;
+
+    .results-title{
+        margin-bottom: 1em;
+    }
+    
+
+    .dates{
+        overflow: scroll;
+        
+    }
+    
+
+    .date{
+        margin-bottom: 1.6em;
+        background-color: seashell;
+    }
+    .date{
+        p>span{
+            color: red
+        }
+    }
+
+    .btn{
+        margin-top: 1em;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .btn-delete{
+        background-color: red;
+        color: white;
+    }
+    .btn-edit{
+        background-color: rgb(35, 129, 216);
+        color: white;
+    }
 }

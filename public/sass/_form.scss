@@ -31,16 +31,21 @@
         font-size: .9em;
     }
 
-    .btn{
+    .btn-main{
         margin: auto;
         display: block;
         padding: .5em;
-        width: 50%;
+        width: 55%;
         -webkit-appearance: none;
         border: none;
+        background-color: yellowgreen;
+        
 
         &:focus{
             outline: none;
+        }
+        &:hover{
+            background-color: rgba($color: yellowgreen, $alpha: .6);
         }
     }
 }
