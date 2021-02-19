@@ -14,4 +14,8 @@ export default class Info{
     deleteDateInfo(id){
        this._dates = this._dates.filter(date=>date.id != id)
     }
+
+    editDateInfo(dateToEdit){
+        this._dates = this._dates.map(date=> date.id ===dateToEdit.id? date: dateToEdit)
+    }
 }

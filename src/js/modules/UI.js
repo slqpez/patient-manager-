@@ -5,18 +5,18 @@ export default class UI {
     const form = document.querySelector("form");
     const msgP = document.createElement("p");
     msgP.textContent = msg;
-    msgP.className = "msg"
+    msgP.className = "msg";
+    msgP.style.marginTop ="10px"
     if (type === "error") {
       msgP.style.color = "red";
     }
-    if(!document.querySelector(".msg")){
-        form.appendChild(msgP);
+    if (!document.querySelector(".msg")) {
+      form.appendChild(msgP);
     }
-    
-    
+
     setTimeout(() => {
-        msgP.remove()
-    },2000)
+      msgP.remove();
+    }, 2000);
   }
 
   addDateToList(dates) {
@@ -40,11 +40,31 @@ export default class UI {
   }
 
   deleteDateFromList(id, dates) {
-    return dates.filter((date) => date.id != id);
+    return dates.filter((date) => date.id != Number(id));
   }
 
   cleanHtml() {
     const list = document.querySelector(".dates");
     while (list.hasChildNodes()) list.firstChild.remove();
+  }
+
+  editDate(id, dates, name, owner, phone, day, hour, notes) {
+    const dateToedit =dates.filter((date) => date.id === Number(id));
+    console.log(id)
+    /* name.value = dateToedit[0].name
+    owner.value = dateToedit[0].owner
+    phone.value = dateToedit[0].phone
+    day.value = dateToedit[0].day
+    hour.value = dateToedit[0].hour
+    notes.value = dateToedit[0].notes */
+
+    console.log(dateToedit)
+    
+
+
+  }
+
+  refreshList(){
+
   }
 }
