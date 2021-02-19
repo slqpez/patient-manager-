@@ -18,8 +18,6 @@ function addDate(e) {
   const day = document.querySelector("#day").value;
   const hour = document.querySelector("#hour").value;
   const notes = document.querySelector("#notes").value;
-  form.reset();
-  ui.cleanHtml();
 
   const dateInfo = {
     name,
@@ -31,9 +29,22 @@ function addDate(e) {
     id: Date.now(),
   };
 
-  info.addDateInfo(dateInfo);
+  if (
+    name === "" ||
+    owner === "" ||
+    phone === "" ||
+    day === "" ||
+    hour === "" ||
+    notes === ""
+  ) {
+    ui.showMessage("Campos faltantes", "error");
+  } else {
+    ui.cleanHtml();
+    info.addDateInfo(dateInfo);
 
-  ui.addDateToList(info.getDates());
+    ui.addDateToList(info.getDates());
+    form.reset();
+  }
 }
 
 dates.addEventListener("click", deleteDate);
@@ -41,13 +52,11 @@ dates.addEventListener("click", deleteDate);
 function deleteDate(e) {
   e.stopPropagation();
   e.preventDefault();
-  const id = e.target.parentElement.getAttribute("data-id")
-  if (e.target.classList.contains("btn-delete")){
+  const id = e.target.parentElement.getAttribute("data-id");
+  if (e.target.classList.contains("btn-delete")) {
     ui.cleanHtml();
-    info.deleteDateInfo(id)
-    ui.addDateToList(ui.deleteDateFromList(id,info.getDates()));
-    console.log(info.getDates())
+    info.deleteDateInfo(id);
+    ui.addDateToList(ui.deleteDateFromList(id, info.getDates()));
+    console.log(info.getDates());
   }
-
-  
 }

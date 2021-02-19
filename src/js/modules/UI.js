@@ -1,11 +1,28 @@
-export default class UI{
+export default class UI {
+  constructor() {}
 
-    constructor(){}
+  showMessage(msg, type) {
+    const form = document.querySelector("form");
+    const msgP = document.createElement("p");
+    msgP.textContent = msg;
+    msgP.className = "msg"
+    if (type === "error") {
+      msgP.style.color = "red";
+    }
+    if(!document.querySelector(".msg")){
+        form.appendChild(msgP);
+    }
+    
+    
+    setTimeout(() => {
+        msgP.remove()
+    },2000)
+  }
 
-    addDateToList(dates){
-        const list = document.querySelector(".dates")
-        dates.forEach(date=>{
-            list.innerHTML += `<li class="date" data-id=${date.id}>
+  addDateToList(dates) {
+    const list = document.querySelector(".dates");
+    dates.forEach((date) => {
+      list.innerHTML += `<li class="date" data-id=${date.id}>
         <h4 class="date-name">
             ${date.name}
         </h4>
@@ -18,18 +35,16 @@ export default class UI{
         <button class="btn btn-delete">Eliminar</button>
         <button class="btn btn-edit">Editar</button>
 
-    </li>`
-        })
-        
-    }
+    </li>`;
+    });
+  }
 
-    deleteDateFromList(id,dates){
-        return dates.filter(date=>date.id != id)
-    }
+  deleteDateFromList(id, dates) {
+    return dates.filter((date) => date.id != id);
+  }
 
-    cleanHtml(){
-        const list = document.querySelector(".dates")
-        while(list.hasChildNodes())
-        list.firstChild.remove()
-    }
+  cleanHtml() {
+    const list = document.querySelector(".dates");
+    while (list.hasChildNodes()) list.firstChild.remove();
+  }
 }
