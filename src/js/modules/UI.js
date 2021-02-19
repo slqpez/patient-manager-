@@ -5,7 +5,7 @@ export default class UI{
     addDateToList(dates){
         const list = document.querySelector(".dates")
         dates.forEach(date=>{
-            list.innerHTML += `<li class="date">
+            list.innerHTML += `<li class="date" data-id=${date.id}>
         <h4 class="date-name">
             ${date.name}
         </h4>
@@ -23,8 +23,8 @@ export default class UI{
         
     }
 
-    deleteDateFromList(id, dates){
-        dates.filter((date)=> date.id != id)
+    deleteDateFromList(id,dates){
+        return dates.filter(date=>date.id != id)
     }
 
     cleanHtml(){
