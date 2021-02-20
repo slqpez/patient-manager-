@@ -5,6 +5,7 @@ const ui = new UI();
 const dateManager = new DateManager();
 
 const form = document.querySelector("#form");
+const list = document.querySelector(".dates")
 
 const name = document.querySelector("#name");
 const owner = document.querySelector("#owner");
@@ -14,6 +15,7 @@ const hour = document.querySelector("#hour");
 const notes = document.querySelector("#notes");
 
 form.addEventListener("submit", schedule);
+list.addEventListener("click", deleteDate);
 
 function schedule(e) {
   e.preventDefault();
@@ -29,4 +31,15 @@ function schedule(e) {
 
   dateManager.addDate(dateObj);
   ui.addToUI(dateObj);
+}
+
+function deleteDate(e){
+  if(e.target.classList.contains("btn-delete")){
+    const id = e.target.parentNode.getAttribute("data-id")
+    dateManager.deleteDate(id)
+    ui.clearHTML()
+    ui.refreshList(dateManager.getDates())
+
+  }
+    
 }

@@ -1,4 +1,5 @@
 export default class UI {
+
   addToUI(date) {
     const { name, owner, phone, day, hour, notes, id } = date;
     const list = document.querySelector(".dates");
@@ -13,6 +14,18 @@ export default class UI {
            <p class="date-notes">Comentarios: <span class="date-notes-result">${notes}</span></p>
            <button class="btn btn-delete">Eliminar</button>
            <button class="btn btn-edit">Editar</button>
-       </li>`;
+       </li>`
   }
+
+  clearHTML(){
+    const list = document.querySelector(".dates");
+    while(list.hasChildNodes()){
+        list.firstChild.remove()
+    }
+  }
+
+  refreshList(dates){
+    dates.forEach(date=> this.addToUI(date))
+  }
+ 
 }

@@ -5,6 +5,13 @@ export default class Dates{
 
     addDate(date){
         this.dates = [...this.dates, date]
-        console.log(this.dates)
+        
     }
+
+    deleteDate(id){
+        this.dates = this.dates.filter(date=>date.id !== Number(id))
+    }
+   getDates(){
+       return this.dates;
+   }
 }
