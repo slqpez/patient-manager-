@@ -37,6 +37,9 @@ function schedule(e) {
     ui.clearHTML();
     editing = false;
     btnForm.textContent = "Agendar"; 
+    dateManager.editDate(idSelected,dateObj)
+    ui.refreshList(dateManager.getDates());
+
     
   } else {
     dateObj.id = Date.now();

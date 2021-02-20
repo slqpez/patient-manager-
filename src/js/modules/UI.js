@@ -42,6 +42,5 @@ export default class UI {
     hour.value = dateToEdit[0].hour;
     notes.value = dateToEdit[0].notes;
     id = dateToEdit[0].id;
-    console.log(dateToEdit);
   }
 }
