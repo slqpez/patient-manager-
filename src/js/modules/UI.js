@@ -43,4 +43,36 @@ export default class UI {
     notes.value = dateToEdit[0].notes;
     id = dateToEdit[0].id;
   }
+
+  showMessage(message, type){
+    const form = document.querySelector(".form-section")
+    const p = document.createElement('p')
+    p.textContent= message
+    p.style.marginTop= "8px"
+    if(type==="error"){
+      p.classList.add("message-error")
+      p.style.color ="red"
+    }else{
+      p.classList.add("message-succes")
+      p.style.color = "green"
+      if(document.querySelector(".message-error")){
+        const error = document.querySelector(".message-error")
+        error.remove()
+        form.appendChild(p)
+      }else{
+        form.appendChild(p)
+      }
+      
+      
+    }
+
+    if(!document.querySelector(".message-error") && !document.querySelector(".message-succes")){
+      form.appendChild(p)
+    }
+    
+
+    setTimeout(() => {
+      p.remove()
+    }, 2000);
+  }
 }

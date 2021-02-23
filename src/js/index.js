@@ -24,29 +24,43 @@ list.addEventListener("click", editDate);
 
 function schedule(e) {
   e.preventDefault();
-  const dateObj = {
-    name: name.value,
-    owner: owner.value,
-    phone: phone.value,
-    day: day.value,
-    hour: hour.value,
-    notes: notes.value,
-  };
 
-  if (editing) {
-    ui.clearHTML();
-    editing = false;
-    btnForm.textContent = "Agendar"; 
-    dateManager.editDate(idSelected,dateObj)
-    ui.refreshList(dateManager.getDates());
+  if(name.value===""||owner.value===""|| phone.value===""|| day.value==="" || hour.value==="" || notes.value===""){
+    ui.showMessage("Faltan campos por llenar.", "error")
+  }else{
+    const dateObj = {
+      name: name.value,
+      owner: owner.value,
+      phone: phone.value,
+      day: day.value,
+      hour: hour.value,
+      notes: notes.value,
+    };
+  
+    if (editing) {
+      ui.clearHTML();
+      editing = false;
+      btnForm.textContent = "Agendar"; 
+      dateManager.editDate(idSelected,dateObj)
+      ui.refreshList(dateManager.getDates());
+      form.reset()
+      ui.showMessage("Cita editada correctamente.")
+
+  
+      
+    } else {
+      dateObj.id = Date.now();
+      dateManager.addDate(dateObj);
+      ui.addToUI(dateObj);
+      form.reset();
+      ui.showMessage("Cita agregada correctamente.")
+    }
 
     
-  } else {
-    dateObj.id = Date.now();
-    dateManager.addDate(dateObj);
-    ui.addToUI(dateObj);
-    form.reset();
   }
+
+  
+  
 }
 
 function deleteDate(e) {
